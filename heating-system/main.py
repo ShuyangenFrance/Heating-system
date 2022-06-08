@@ -3,6 +3,7 @@ import pandas as pd
 from heating_env import HeatingEnv
 from QLearning import Qlearning
 import matplotlib.pyplot as plt
+
 def weather_preprocessing(weather_df,granularity_in_minutes:int=10,interpolate_method: str = "quadratic"):
     weather_df=weather_df.assign(
         time=pd.to_datetime(weather_df["local_time"])
@@ -41,15 +42,4 @@ def main():
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    state=pd.read_csv("result.csv")
-    fig, ax1 = plt.subplots()
-    ax2 = ax1.twinx()
-    ax1.set_ylabel('temperature', color='g')
-    ax2.set_ylabel('is_heating_on', color='gray')
-    ax1.plot(state["time"],state["indoor_temperature"],label="indoor_temperature")
-    ax1.plot(state["time"],state["lower_temperature"],label="lower_bound_temperature")
-    ax2.scatter(state["time"],state["is_heating_on"],color='gray',s=0.5)
-    plt.xticks([])
-    #plt.figure(figsize=(40, 5), dpi=80)
-    plt.legend()
-    plt.show()
+    main()
