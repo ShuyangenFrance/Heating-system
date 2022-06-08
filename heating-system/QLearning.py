@@ -3,7 +3,7 @@ import random
 
 class Qlearning:
 
-    def __init__(self,env,alpha = 0.1,gamma = 0.6,epsilon = 0.1):
+    def __init__(self,env,alpha = 0.1,gamma = 1,epsilon = 0.1):
         self.alpha=alpha
         self.gamma=gamma
         self.epsilon=epsilon
